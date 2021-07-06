@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="7/4/2021 2:14:17 PM"
@@ -11,9 +11,2353 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionGUID="{4861F1F6-4C84-49DA-A995-C9C488CD8574}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{7512C692-3340-484B-94A1-F4D853E82537}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FDCFFC99-DB9C-48E4-B386-F498C64FAD09}"
+      DTS:ObjectName="DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-JSLQ0KN\ALEJANDRO;Initial Catalog=BI_Proyect;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.DW_BI_Proyect]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F9FE40D0-D45A-418C-89A2-BE35EC683EFA}"
+      DTS:ObjectName="DESKTOP-JSLQ0KN\ALEJANDRO.DW_BI_Proyect">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DESKTOP-JSLQ0KN\ALEJANDRO;Initial Catalog=DW_BI_Proyect;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_Economia"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{49ABD5F9-7AF7-4D95-BC6C-563D76F2C42B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_Economia"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_Economia\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[fk_SchoolarShip]"
+                      cachedDataType="r8"
+                      cachedName="fk_SchoolarShip"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[fk_SchoolarShip]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[salarioAnual]"
+                      cachedDataType="r8"
+                      cachedName="salarioAnual"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[salarioAnual]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[cabezaFamilia]"
+                      cachedDataType="bool"
+                      cachedName="cabezaFamilia"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[cabezaFamilia]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tipoVivienda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="tipoVivienda"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[tipoVivienda]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ZonaVivienda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZonaVivienda"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[ZonaVivienda]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[costoMatriculaAnual]"
+                      cachedDataType="r8"
+                      cachedName="costoMatriculaAnual"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[costoMatriculaAnual]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdMatricula]"
+                      cachedDataType="r8"
+                      cachedName="IdMatricula"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[IdMatricula]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdEstudiante]"
+                      cachedDataType="r8"
+                      cachedName="IdEstudiante"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[IdEstudiante]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdEconomicLevel]"
+                      cachedDataType="r8"
+                      cachedName="IdEconomicLevel"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[IdEconomicLevel]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[IDBeca]"
+                      cachedDataType="r8"
+                      cachedName="IDBeca"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[IDBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[NombreEntidadBeca]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NombreEntidadBeca"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[NombreEntidadBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[IdEntidadBeca]"
+                      cachedDataType="r8"
+                      cachedName="IdEntidadBeca"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[IdEntidadBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[tipoBeca]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="tipoBeca"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[tipoBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[PagoMatricula]"
+                      cachedDataType="r8"
+                      cachedName="PagoMatricula"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[PagoMatricula]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[coberturaDeMatricula]"
+                      cachedDataType="r8"
+                      cachedName="coberturaDeMatricula"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[coberturaDeMatricula]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[pagoAlojamiento]"
+                      cachedDataType="r8"
+                      cachedName="pagoAlojamiento"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoAlojamiento]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[pagoAlimentacion]"
+                      cachedDataType="r8"
+                      cachedName="pagoAlimentacion"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoAlimentacion]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[pagoSeguroMedico]"
+                      cachedDataType="r8"
+                      cachedName="pagoSeguroMedico"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoSeguroMedico]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[pagoTransporte]"
+                      cachedDataType="r8"
+                      cachedName="pagoTransporte"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoTransporte]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[pagoMaterialEstudio]"
+                      cachedDataType="r8"
+                      cachedName="pagoMaterialEstudio"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoMaterialEstudio]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[TotalBeca]"
+                      cachedDataType="r8"
+                      cachedName="TotalBeca"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[TotalBeca]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[salarioAnual]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[salarioAnual]"
+                      name="salarioAnual">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[salarioAnual]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cabezaFamilia]"
+                      dataType="bool"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cabezaFamilia]"
+                      name="cabezaFamilia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[cabezaFamilia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoVivienda]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoVivienda]"
+                      name="tipoVivienda">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tipoVivienda]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ZonaVivienda]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ZonaVivienda]"
+                      name="ZonaVivienda">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[ZonaVivienda]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[costoMatriculaAnual]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[costoMatriculaAnual]"
+                      name="costoMatriculaAnual">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[costoMatriculaAnual]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMatricula]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMatricula]"
+                      name="IdMatricula">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdMatricula]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEstudiante]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEstudiante]"
+                      name="IdEstudiante">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdEstudiante]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEconomicLevel]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEconomicLevel]"
+                      name="IdEconomicLevel">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[IdEconomicLevel]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreEntidadBeca]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreEntidadBeca]"
+                      name="NombreEntidadBeca">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[NombreEntidadBeca]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEntidadBeca]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEntidadBeca]"
+                      name="IdEntidadBeca">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[IdEntidadBeca]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDBeca]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDBeca]"
+                      name="IDBeca"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[IDBeca]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoBeca]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoBeca]"
+                      name="tipoBeca">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[tipoBeca]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PagoMatricula]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PagoMatricula]"
+                      name="PagoMatricula">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[PagoMatricula]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[coberturaDeMatricula]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[coberturaDeMatricula]"
+                      name="coberturaDeMatricula">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[coberturaDeMatricula]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlojamiento]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlojamiento]"
+                      name="pagoAlojamiento">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[pagoAlojamiento]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlimentacion]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlimentacion]"
+                      name="pagoAlimentacion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[pagoAlimentacion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoSeguroMedico]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoSeguroMedico]"
+                      name="pagoSeguroMedico">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[pagoSeguroMedico]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoTransporte]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoTransporte]"
+                      name="pagoTransporte">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[pagoTransporte]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoMaterialEstudio]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoMaterialEstudio]"
+                      name="pagoMaterialEstudio">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[pagoMaterialEstudio]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TotalBeca]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TotalBeca]"
+                      name="TotalBeca">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[TotalBeca]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_Economia\DIM_estadoSocioEconomico"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DIM_estadoSocioEconomico"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[DIM_estadoSocioEconomico]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.DW_BI_Proyect]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.DW_BI_Proyect]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[salarioAnual]"
+                      cachedDataType="r8"
+                      cachedName="salarioAnual"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[salarioAnual]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[salarioAnual]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[cabezaFamilia]"
+                      cachedDataType="bool"
+                      cachedName="cabezaFamilia"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[cabezaFamilia]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[cabezaFamilia]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[tipoVivienda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="tipoVivienda"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[tipoVivienda]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoVivienda]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[ZonaVivienda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZonaVivienda"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[ZonaVivienda]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ZonaVivienda]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[costoMatriculaAnual]"
+                      cachedDataType="r8"
+                      cachedName="costoMatriculaAnual"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[costoMatriculaAnual]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[costoMatriculaAnual]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[IdMatricula]"
+                      cachedDataType="r8"
+                      cachedName="IdMatricula"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMatricula]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMatricula]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[IdEstudiante]"
+                      cachedDataType="r8"
+                      cachedName="IdEstudiante"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEstudiante]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEstudiante]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[IdEconomicLevel]"
+                      cachedDataType="r8"
+                      cachedName="IdEconomicLevel"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEconomicLevel]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEconomicLevel]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[NombreEntidadBeca]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NombreEntidadBeca"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreEntidadBeca]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreEntidadBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[IdEntidadBeca]"
+                      cachedDataType="r8"
+                      cachedName="IdEntidadBeca"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEntidadBeca]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEntidadBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[IDBeca]"
+                      cachedDataType="r8"
+                      cachedName="IDBeca"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDBeca]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[tipoBeca]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="tipoBeca"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[tipoBeca]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[PagoMatricula]"
+                      cachedDataType="r8"
+                      cachedName="PagoMatricula"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[PagoMatricula]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PagoMatricula]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[coberturaDeMatricula]"
+                      cachedDataType="r8"
+                      cachedName="coberturaDeMatricula"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[coberturaDeMatricula]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[coberturaDeMatricula]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[pagoAlojamiento]"
+                      cachedDataType="r8"
+                      cachedName="pagoAlojamiento"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoAlojamiento]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlojamiento]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[pagoAlimentacion]"
+                      cachedDataType="r8"
+                      cachedName="pagoAlimentacion"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoAlimentacion]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlimentacion]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[pagoSeguroMedico]"
+                      cachedDataType="r8"
+                      cachedName="pagoSeguroMedico"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoSeguroMedico]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoSeguroMedico]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[pagoTransporte]"
+                      cachedDataType="r8"
+                      cachedName="pagoTransporte"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoTransporte]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoTransporte]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[pagoMaterialEstudio]"
+                      cachedDataType="r8"
+                      cachedName="pagoMaterialEstudio"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoMaterialEstudio]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoMaterialEstudio]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].Columns[TotalBeca]"
+                      cachedDataType="r8"
+                      cachedName="TotalBeca"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalBeca]"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TotalBeca]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[ESocioEconomicKey]"
+                      dataType="i4"
+                      name="ESocioEconomicKey" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[salarioAnual]"
+                      dataType="r8"
+                      name="salarioAnual" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[cabezaFamilia]"
+                      dataType="bool"
+                      name="cabezaFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[tipoVivienda]"
+                      dataType="wstr"
+                      length="255"
+                      name="tipoVivienda" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[ZonaVivienda]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZonaVivienda" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[costoMatriculaAnual]"
+                      dataType="r8"
+                      name="costoMatriculaAnual" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMatricula]"
+                      dataType="r8"
+                      name="IdMatricula" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEstudiante]"
+                      dataType="r8"
+                      name="IdEstudiante" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEconomicLevel]"
+                      dataType="r8"
+                      name="IdEconomicLevel" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreEntidadBeca]"
+                      dataType="wstr"
+                      length="255"
+                      name="NombreEntidadBeca" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEntidadBeca]"
+                      dataType="r8"
+                      name="IdEntidadBeca" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDBeca]"
+                      dataType="r8"
+                      name="IDBeca" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[tipoBeca]"
+                      dataType="wstr"
+                      length="255"
+                      name="tipoBeca" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[PagoMatricula]"
+                      dataType="r8"
+                      name="PagoMatricula" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[coberturaDeMatricula]"
+                      dataType="r8"
+                      name="coberturaDeMatricula" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoAlojamiento]"
+                      dataType="r8"
+                      name="pagoAlojamiento" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoAlimentacion]"
+                      dataType="r8"
+                      name="pagoAlimentacion" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoSeguroMedico]"
+                      dataType="r8"
+                      name="pagoSeguroMedico" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoTransporte]"
+                      dataType="r8"
+                      name="pagoTransporte" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoMaterialEstudio]"
+                      dataType="r8"
+                      name="pagoMaterialEstudio" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalBeca]"
+                      dataType="r8"
+                      name="TotalBeca" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Economia\DIM_estadoSocioEconomico.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\DIM_estadoSocioEconomico.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Economia\DIM_estadoSocioEconomico.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_Economia\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación].Columns[salarioAnual]"
+                      cachedDataType="r8"
+                      cachedName="salarioAnual"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[salarioAnual]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación].Columns[cabezaFamilia]"
+                      cachedDataType="bool"
+                      cachedName="cabezaFamilia"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[cabezaFamilia]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación].Columns[tipoVivienda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="tipoVivienda"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[tipoVivienda]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación].Columns[ZonaVivienda]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZonaVivienda"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[ZonaVivienda]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación].Columns[costoMatriculaAnual]"
+                      cachedDataType="r8"
+                      cachedName="costoMatriculaAnual"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[costoMatriculaAnual]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación].Columns[IdMatricula]"
+                      cachedDataType="r8"
+                      cachedName="IdMatricula"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdMatricula]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación].Columns[IdEstudiante]"
+                      cachedDataType="r8"
+                      cachedName="IdEstudiante"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdEstudiante]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación].Columns[IdEconomicLevel]"
+                      cachedDataType="r8"
+                      cachedName="IdEconomicLevel"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdEconomicLevel]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación].Columns[fk_SchoolarShip]"
+                      cachedDataType="r8"
+                      cachedName="fk_SchoolarShip"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[fk_SchoolarShip]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[salarioAnual]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[salarioAnual]"
+                      name="salarioAnual">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[salarioAnual]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[cabezaFamilia]"
+                      dataType="bool"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[cabezaFamilia]"
+                      name="cabezaFamilia">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[cabezaFamilia]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[tipoVivienda]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[tipoVivienda]"
+                      name="tipoVivienda">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[tipoVivienda]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[ZonaVivienda]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[ZonaVivienda]"
+                      name="ZonaVivienda">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[ZonaVivienda]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[costoMatriculaAnual]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[costoMatriculaAnual]"
+                      name="costoMatriculaAnual">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[costoMatriculaAnual]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[IdMatricula]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[IdMatricula]"
+                      name="IdMatricula">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdMatricula]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[IdEstudiante]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[IdEstudiante]"
+                      name="IdEstudiante">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdEstudiante]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[IdEconomicLevel]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[IdEconomicLevel]"
+                      name="IdEconomicLevel">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdEconomicLevel]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[fk_SchoolarShip]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación].Columns[fk_SchoolarShip]"
+                      name="fk_SchoolarShip"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[fk_SchoolarShip]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_Economia\Ordenar 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[NombreEntidadBeca]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NombreEntidadBeca"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[NombreEntidadBeca]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[IdEntidadBeca]"
+                      cachedDataType="r8"
+                      cachedName="IdEntidadBeca"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[IdEntidadBeca]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[IDBeca]"
+                      cachedDataType="r8"
+                      cachedName="IDBeca"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[IDBeca]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[tipoBeca]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="tipoBeca"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[tipoBeca]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[PagoMatricula]"
+                      cachedDataType="r8"
+                      cachedName="PagoMatricula"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[PagoMatricula]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[coberturaDeMatricula]"
+                      cachedDataType="r8"
+                      cachedName="coberturaDeMatricula"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[coberturaDeMatricula]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[pagoAlojamiento]"
+                      cachedDataType="r8"
+                      cachedName="pagoAlojamiento"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoAlojamiento]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[pagoAlimentacion]"
+                      cachedDataType="r8"
+                      cachedName="pagoAlimentacion"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoAlimentacion]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[pagoSeguroMedico]"
+                      cachedDataType="r8"
+                      cachedName="pagoSeguroMedico"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoSeguroMedico]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[pagoTransporte]"
+                      cachedDataType="r8"
+                      cachedName="pagoTransporte"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoTransporte]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[pagoMaterialEstudio]"
+                      cachedDataType="r8"
+                      cachedName="pagoMaterialEstudio"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoMaterialEstudio]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación].Columns[TotalBeca]"
+                      cachedDataType="r8"
+                      cachedName="TotalBeca"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[TotalBeca]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[NombreEntidadBeca]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[NombreEntidadBeca]"
+                      name="NombreEntidadBeca">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[NombreEntidadBeca]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[IdEntidadBeca]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[IdEntidadBeca]"
+                      name="IdEntidadBeca">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[IdEntidadBeca]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[IDBeca]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[IDBeca]"
+                      name="IDBeca"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[IDBeca]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[tipoBeca]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[tipoBeca]"
+                      name="tipoBeca">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[tipoBeca]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[PagoMatricula]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[PagoMatricula]"
+                      name="PagoMatricula">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[PagoMatricula]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[coberturaDeMatricula]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[coberturaDeMatricula]"
+                      name="coberturaDeMatricula">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[coberturaDeMatricula]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoAlojamiento]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoAlojamiento]"
+                      name="pagoAlojamiento">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoAlojamiento]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoAlimentacion]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoAlimentacion]"
+                      name="pagoAlimentacion">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoAlimentacion]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoSeguroMedico]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoSeguroMedico]"
+                      name="pagoSeguroMedico">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoSeguroMedico]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoTransporte]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoTransporte]"
+                      name="pagoTransporte">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoTransporte]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoMaterialEstudio]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[pagoMaterialEstudio]"
+                      name="pagoMaterialEstudio">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoMaterialEstudio]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[TotalBeca]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación].Columns[TotalBeca]"
+                      name="TotalBeca">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[TotalBeca]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_Economia\SQL_Becas"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="SQL_Becas"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        tbl_Entity.EntityName AS NombreEntidadBeca, tbl_Entity.Id AS IdEntidadBeca, tbl_Schoolarships.Id AS IDBeca, tbl_Schoolarships.Type AS tipoBeca, tbl_Schoolarships.TuitionPay AS PagoMatricula, 
+                         tbl_Schoolarships.TuitionPercent AS coberturaDeMatricula, tbl_Schoolarships.HousingPay AS pagoAlojamiento, tbl_Schoolarships.FoodPay AS pagoAlimentacion, tbl_Schoolarships.HealthcarePay AS pagoSeguroMedico, 
+                         tbl_Schoolarships.TransportPay AS pagoTransporte, tbl_Schoolarships.StudyingMaterialPay AS pagoMaterialEstudio, tbl_Schoolarships.TotalAmount AS TotalBeca
+FROM            tbl_Schoolarships INNER JOIN
+                         tbl_Entity ON tbl_Schoolarships.fk_Entity = tbl_Entity.Id</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_Economia\SQL_Becas.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[NombreEntidadBeca]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreEntidadBeca]"
+                      length="255"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[NombreEntidadBeca]"
+                      name="NombreEntidadBeca"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[IdEntidadBeca]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[IdEntidadBeca]"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[IdEntidadBeca]"
+                      name="IdEntidadBeca"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[IDBeca]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[IDBeca]"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[IDBeca]"
+                      name="IDBeca"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[tipoBeca]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[tipoBeca]"
+                      length="255"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[tipoBeca]"
+                      name="tipoBeca"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[PagoMatricula]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[PagoMatricula]"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[PagoMatricula]"
+                      name="PagoMatricula"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[coberturaDeMatricula]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[coberturaDeMatricula]"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[coberturaDeMatricula]"
+                      name="coberturaDeMatricula"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoAlojamiento]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[pagoAlojamiento]"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoAlojamiento]"
+                      name="pagoAlojamiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoAlimentacion]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[pagoAlimentacion]"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoAlimentacion]"
+                      name="pagoAlimentacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoSeguroMedico]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[pagoSeguroMedico]"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoSeguroMedico]"
+                      name="pagoSeguroMedico"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoTransporte]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[pagoTransporte]"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoTransporte]"
+                      name="pagoTransporte"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoMaterialEstudio]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[pagoMaterialEstudio]"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[pagoMaterialEstudio]"
+                      name="pagoMaterialEstudio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[TotalBeca]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalBeca]"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].Columns[TotalBeca]"
+                      name="TotalBeca"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreEntidadBeca]"
+                      dataType="wstr"
+                      length="255"
+                      name="NombreEntidadBeca" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[IdEntidadBeca]"
+                      dataType="r8"
+                      name="IdEntidadBeca" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[IDBeca]"
+                      dataType="r8"
+                      name="IDBeca" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[tipoBeca]"
+                      dataType="wstr"
+                      length="255"
+                      name="tipoBeca" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[PagoMatricula]"
+                      dataType="r8"
+                      name="PagoMatricula" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[coberturaDeMatricula]"
+                      dataType="r8"
+                      name="coberturaDeMatricula" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[pagoAlojamiento]"
+                      dataType="r8"
+                      name="pagoAlojamiento" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[pagoAlimentacion]"
+                      dataType="r8"
+                      name="pagoAlimentacion" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[pagoSeguroMedico]"
+                      dataType="r8"
+                      name="pagoSeguroMedico" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[pagoTransporte]"
+                      dataType="r8"
+                      name="pagoTransporte" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[pagoMaterialEstudio]"
+                      dataType="r8"
+                      name="pagoMaterialEstudio" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB].ExternalColumns[TotalBeca]"
+                      dataType="r8"
+                      name="TotalBeca" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[NombreEntidadBeca]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[NombreEntidadBeca]"
+                      name="NombreEntidadBeca" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[IdEntidadBeca]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[IdEntidadBeca]"
+                      name="IdEntidadBeca" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[IDBeca]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[IDBeca]"
+                      name="IDBeca" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[tipoBeca]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[tipoBeca]"
+                      name="tipoBeca" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[PagoMatricula]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[PagoMatricula]"
+                      name="PagoMatricula" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[coberturaDeMatricula]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[coberturaDeMatricula]"
+                      name="coberturaDeMatricula" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[pagoAlojamiento]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[pagoAlojamiento]"
+                      name="pagoAlojamiento" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[pagoAlimentacion]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[pagoAlimentacion]"
+                      name="pagoAlimentacion" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[pagoSeguroMedico]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[pagoSeguroMedico]"
+                      name="pagoSeguroMedico" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[pagoTransporte]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[pagoTransporte]"
+                      name="pagoTransporte" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[pagoMaterialEstudio]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[pagoMaterialEstudio]"
+                      name="pagoMaterialEstudio" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[TotalBeca]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[TotalBeca]"
+                      name="TotalBeca" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_Economia\SQL_estadoEconomicoPersona"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="SQL_estadoEconomicoPersona"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        tbl_socioEconomicLevel.salarioAnual, tbl_socioEconomicLevel.cabezaFamilia, tbl_socioEconomicLevel.tipoVivienda, tbl_socioEconomicLevel.ZonaVivienda, tbl_Matricula.tuitionCostPerYear AS costoMatriculaAnual, 
+                         tbl_Matricula.Id AS IdMatricula, tbl_Students.Id AS IdEstudiante, tbl_socioEconomicLevel.fk_Student AS IdEconomicLevel, tbl_Matricula.fk_SchoolarShip
+FROM            tbl_Students INNER JOIN
+                         tbl_Matricula ON tbl_Students.Id = tbl_Matricula.fk_Estudiante INNER JOIN
+                         tbl_socioEconomicLevel ON tbl_Students.Id = tbl_socioEconomicLevel.fk_Student</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[salarioAnual]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[salarioAnual]"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[salarioAnual]"
+                      name="salarioAnual"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[cabezaFamilia]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[cabezaFamilia]"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[cabezaFamilia]"
+                      name="cabezaFamilia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[tipoVivienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[tipoVivienda]"
+                      length="255"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[tipoVivienda]"
+                      name="tipoVivienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[ZonaVivienda]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[ZonaVivienda]"
+                      length="255"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[ZonaVivienda]"
+                      name="ZonaVivienda"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[costoMatriculaAnual]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[costoMatriculaAnual]"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[costoMatriculaAnual]"
+                      name="costoMatriculaAnual"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdMatricula]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMatricula]"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdMatricula]"
+                      name="IdMatricula"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdEstudiante]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[IdEstudiante]"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdEstudiante]"
+                      name="IdEstudiante"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdEconomicLevel]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[IdEconomicLevel]"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[IdEconomicLevel]"
+                      name="IdEconomicLevel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[fk_SchoolarShip]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[fk_SchoolarShip]"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].Columns[fk_SchoolarShip]"
+                      name="fk_SchoolarShip"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[salarioAnual]"
+                      dataType="r8"
+                      name="salarioAnual" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[cabezaFamilia]"
+                      dataType="bool"
+                      name="cabezaFamilia" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[tipoVivienda]"
+                      dataType="wstr"
+                      length="255"
+                      name="tipoVivienda" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[ZonaVivienda]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZonaVivienda" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[costoMatriculaAnual]"
+                      dataType="r8"
+                      name="costoMatriculaAnual" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[IdMatricula]"
+                      dataType="r8"
+                      name="IdMatricula" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[IdEstudiante]"
+                      dataType="r8"
+                      name="IdEstudiante" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[IdEconomicLevel]"
+                      dataType="r8"
+                      name="IdEconomicLevel" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB].ExternalColumns[fk_SchoolarShip]"
+                      dataType="r8"
+                      name="fk_SchoolarShip" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[salarioAnual]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[salarioAnual]"
+                      name="salarioAnual" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[cabezaFamilia]"
+                      dataType="bool"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[cabezaFamilia]"
+                      name="cabezaFamilia" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[tipoVivienda]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[tipoVivienda]"
+                      name="tipoVivienda" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[ZonaVivienda]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[ZonaVivienda]"
+                      name="ZonaVivienda" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[costoMatriculaAnual]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[costoMatriculaAnual]"
+                      name="costoMatriculaAnual" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[IdMatricula]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[IdMatricula]"
+                      name="IdMatricula" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[IdEstudiante]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[IdEstudiante]"
+                      name="IdEstudiante" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[IdEconomicLevel]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[IdEconomicLevel]"
+                      name="IdEconomicLevel" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[fk_SchoolarShip]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[fk_SchoolarShip]"
+                      name="fk_SchoolarShip" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_Economia.Paths[Salida de combinación de mezcla]"
+              endId="Package\DIM_Economia\DIM_estadoSocioEconomico.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de combinación de mezcla"
+              startId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\DIM_Economia.Paths[Salida de ordenación]"
+              endId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\DIM_Economia\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\DIM_Economia.Paths[Salida de ordenación1]"
+              endId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\DIM_Economia\Ordenar 1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\DIM_Economia.Paths[Salida de origen de OLE DB]"
+              endId="Package\DIM_Economia\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\DIM_Economia\SQL_estadoEconomicoPersona.Outputs[Salida de origen de OLE DB]" />
+            <path
+              refId="Package\DIM_Economia.Paths[Salida de origen de OLE DB1]"
+              endId="Package\DIM_Economia\Ordenar 1.Inputs[Entrada de ordenación]"
+              name="Salida de origen de OLE DB"
+              startId="Package\DIM_Economia\SQL_Becas.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{32A88240-FE27-40C8-8F0D-E26583AAE4E9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DIM_Economia"
+          TopLeft="107,152" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="316,41" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM_Economia">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="223,42"
+          Id="Package\DIM_Economia\SQL_estadoEconomicoPersona"
+          TopLeft="112,41" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\DIM_Economia\DIM_estadoSocioEconomico"
+          TopLeft="344,372" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\DIM_Economia\SQL_Becas"
+          TopLeft="576,36" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\DIM_Economia\Ordenar"
+          TopLeft="188,159" />
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de origen de OLE DB]"
+          TopLeft="223.5,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23,76"
+              Start="0,0"
+              End="23,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="4,38" />
+                  <mssgle:LineSegment
+                    End="19,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19,38"
+                    Point2="23,38"
+                    Point3="23,42" />
+                  <mssgle:LineSegment
+                    End="23,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="126,42"
+          Id="Package\DIM_Economia\Ordenar 1"
+          TopLeft="571,151" />
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de origen de OLE DB1]"
+          TopLeft="637.75,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DIM_Economia\Combinación de mezcla"
+          TopLeft="338,246" />
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de ordenación]"
+          TopLeft="246.5,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.166666666667,45"
+              Start="0,0"
+              End="156.166666666667,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.7745302713987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.7745302713987"
+                    Point2="0,26.7745302713987"
+                    Point3="4,26.7745302713987" />
+                  <mssgle:LineSegment
+                    End="152.166666666667,26.7745302713987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.166666666667,26.7745302713987"
+                    Point2="156.166666666667,26.7745302713987"
+                    Point3="156.166666666667,30.7745302713987" />
+                  <mssgle:LineSegment
+                    End="156.166666666667,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de ordenación1]"
+          TopLeft="634,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-170.666666666667,53"
+              Start="0,0"
+              End="-170.666666666667,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5344467640919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5344467640919"
+                    Point2="0,31.5344467640919"
+                    Point3="-4,31.5344467640919" />
+                  <mssgle:LineSegment
+                    End="-166.666666666667,31.5344467640919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-166.666666666667,31.5344467640919"
+                    Point2="-170.666666666667,31.5344467640919"
+                    Point3="-170.666666666667,35.5344467640919" />
+                  <mssgle:LineSegment
+                    End="-170.666666666667,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de combinación de mezcla]"
+          TopLeft="433,288">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.5,84"
+              Start="0,0"
+              End="16.5,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38"
+                    Point2="0,42"
+                    Point3="4,42" />
+                  <mssgle:LineSegment
+                    End="12.5,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.5,42"
+                    Point2="16.5,42"
+                    Point3="16.5,46" />
+                  <mssgle:LineSegment
+                    End="16.5,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Economia\SQL_estadoEconomicoPersona">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Economia\DIM_estadoSocioEconomico">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Economia\SQL_Becas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
