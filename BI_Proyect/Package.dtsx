@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{7512C692-3340-484B-94A1-F4D853E82537}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{8A4C71A5-65F8-4FE5-8788-F3089285EBE0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -40,9 +40,479 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\DIM_AcademicStatus"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:Disabled="True"
+      DTS:DTSID="{3586968C-3312-40BE-82BF-97F62839C3F0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_AcademicStatus"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_AcademicStatus\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        tbl_parentalLevel.Id AS IdParentalLevel, tbl_Students.Id AS IdStudent, tbl_parentalLevel.education_level AS ParentalLevel, tbl_Students.AcademicLevel, tbl_Students.Nationality
+FROM            tbl_parentalLevel INNER JOIN
+                         tbl_Students ON tbl_parentalLevel.Id = tbl_Students.fk_parentalLevel</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_AcademicStatus\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[IdParentalLevel]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[IdParentalLevel]"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[IdParentalLevel]"
+                      name="IdParentalLevel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[IdStudent]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[IdStudent]"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[IdStudent]"
+                      name="IdStudent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ParentalLevel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ParentalLevel]"
+                      length="255"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ParentalLevel]"
+                      name="ParentalLevel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[AcademicLevel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[AcademicLevel]"
+                      length="255"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[AcademicLevel]"
+                      name="AcademicLevel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nationality]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nationality]"
+                      length="255"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Nationality]"
+                      name="Nationality"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[IdParentalLevel]"
+                      dataType="r8"
+                      name="IdParentalLevel" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[IdStudent]"
+                      dataType="r8"
+                      name="IdStudent" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ParentalLevel]"
+                      dataType="wstr"
+                      length="255"
+                      name="ParentalLevel" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[AcademicLevel]"
+                      dataType="wstr"
+                      length="255"
+                      name="AcademicLevel" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Nationality]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nationality" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[IdParentalLevel]"
+                      dataType="r8"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[IdParentalLevel]"
+                      name="IdParentalLevel" />
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[IdStudent]"
+                      dataType="r8"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[IdStudent]"
+                      name="IdStudent" />
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ParentalLevel]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ParentalLevel]"
+                      name="ParentalLevel" />
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[AcademicLevel]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[AcademicLevel]"
+                      name="AcademicLevel" />
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Nationality]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Nationality]"
+                      name="Nationality" />
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_AcademicStatus\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_AcademicStatus\XML Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+              name="XML Source"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                <property
+                  dataType="System.Null"
+                  description="The XML data used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLData" />
+                <property
+                  dataType="System.Null"
+                  description="The variable used by the XML source adapter to specify XML data."
+                  name="XMLDataVariable" />
+                <property
+                  dataType="System.Int32"
+                  description="Defines how the XML source adapter gets XML data."
+                  name="AccessMode">0</property>
+                <property
+                  dataType="System.Null"
+                  description="The XML schema definition used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLSchemaDefinition" />
+                <property
+                  dataType="System.Null"
+                  description="Identifies whether or not to use inline schema."
+                  name="UseInlineSchema" />
+                <property
+                  dataType="System.Int32"
+                  description="Defines how XML integer types are mapped."
+                  name="XMLIntegerMapping"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\DIM_AcademicStatus\XML Source.Outputs[XML Source Output]"
+                  dangling="true"
+                  name="XML Source Output">
+                  <properties>
+                    <property
+                      dataType="System.Null"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID" />
+                  </properties>
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DIM_CursoAcademico"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{481C07D3-11A7-4889-B9A5-374B47A1A7E9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_CursoAcademico"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_CursoAcademico\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        tbl_Delivery.Id AS IdDelivery, tbl_Delivery.ProgramName, tbl_Program.Id AS IdProgram, tbl_Program.NameProgram, tbl_Matricula.tuitionCostPerYear
+FROM            tbl_Program INNER JOIN
+                         tbl_Delivery ON tbl_Program.fk_Delivery = tbl_Delivery.Id INNER JOIN
+                         tbl_Matricula ON tbl_Program.Id = tbl_Matricula.fk_Program</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_CursoAcademico\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[IdDelivery]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[IdDelivery]"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[IdDelivery]"
+                      name="IdDelivery"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ProgramName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ProgramName]"
+                      length="255"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[ProgramName]"
+                      name="ProgramName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[IdProgram]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[IdProgram]"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[IdProgram]"
+                      name="IdProgram"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[NameProgram]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[NameProgram]"
+                      length="255"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[NameProgram]"
+                      name="NameProgram"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tuitionCostPerYear]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[tuitionCostPerYear]"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[tuitionCostPerYear]"
+                      name="tuitionCostPerYear"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[IdDelivery]"
+                      dataType="r8"
+                      name="IdDelivery" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[ProgramName]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProgramName" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[IdProgram]"
+                      dataType="r8"
+                      name="IdProgram" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[NameProgram]"
+                      dataType="wstr"
+                      length="255"
+                      name="NameProgram" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[tuitionCostPerYear]"
+                      dataType="r8"
+                      name="tuitionCostPerYear" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[IdDelivery]"
+                      dataType="r8"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[IdDelivery]"
+                      name="IdDelivery" />
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ProgramName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ProgramName]"
+                      name="ProgramName" />
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[IdProgram]"
+                      dataType="r8"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[IdProgram]"
+                      name="IdProgram" />
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[NameProgram]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[NameProgram]"
+                      name="NameProgram" />
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[tuitionCostPerYear]"
+                      dataType="r8"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[tuitionCostPerYear]"
+                      name="tuitionCostPerYear" />
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_CursoAcademico\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\DIM_Economia"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
+      DTS:Disabled="True"
       DTS:DTSID="{49ABD5F9-7AF7-4D95-BC6C-563D76F2C42B}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -2132,11 +2602,19 @@ FROM            tbl_Students INNER JOIN
         <NodeLayout
           Size="150,42"
           Id="Package\DIM_Economia"
-          TopLeft="107,152" />
+          TopLeft="89,150" />
         <NodeLayout
           Size="163,42"
           Id="Package\Execute SQL Task"
           TopLeft="316,41" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\DIM_AcademicStatus"
+          TopLeft="303,149" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DIM_CursoAcademico"
+          TopLeft="576,146" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2144,121 +2622,31 @@ FROM            tbl_Students INNER JOIN
     design-time-name="Package\DIM_Economia">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="223,42"
           Id="Package\DIM_Economia\SQL_estadoEconomicoPersona"
           TopLeft="112,41" />
         <NodeLayout
-          Size="211,42"
-          Id="Package\DIM_Economia\DIM_estadoSocioEconomico"
-          TopLeft="344,372" />
+          Size="117,42"
+          Id="Package\DIM_Economia\Ordenar"
+          TopLeft="188,159" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\DIM_Economia\Ordenar 1"
+          TopLeft="571,151" />
         <NodeLayout
           Size="131,42"
           Id="Package\DIM_Economia\SQL_Becas"
           TopLeft="576,36" />
         <NodeLayout
-          Size="117,42"
-          Id="Package\DIM_Economia\Ordenar"
-          TopLeft="188,159" />
-        <EdgeLayout
-          Id="Package\DIM_Economia.Paths[Salida de origen de OLE DB]"
-          TopLeft="223.5,83">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="23,76"
-              Start="0,0"
-              End="23,68.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34"
-                    Point2="0,38"
-                    Point3="4,38" />
-                  <mssgle:LineSegment
-                    End="19,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19,38"
-                    Point2="23,38"
-                    Point3="23,42" />
-                  <mssgle:LineSegment
-                    End="23,68.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="126,42"
-          Id="Package\DIM_Economia\Ordenar 1"
-          TopLeft="571,151" />
-        <EdgeLayout
-          Id="Package\DIM_Economia.Paths[Salida de origen de OLE DB1]"
-          TopLeft="637.75,78">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,73"
-              Start="0,0"
-              End="0,65.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,65.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="211,42"
+          Id="Package\DIM_Economia\DIM_estadoSocioEconomico"
+          TopLeft="344,372" />
         <NodeLayout
           Size="190,42"
           Id="Package\DIM_Economia\Combinación de mezcla"
           TopLeft="338,246" />
-        <EdgeLayout
-          Id="Package\DIM_Economia.Paths[Salida de ordenación]"
-          TopLeft="246.5,201">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="156.166666666667,45"
-              Start="0,0"
-              End="156.166666666667,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.7745302713987" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.7745302713987"
-                    Point2="0,26.7745302713987"
-                    Point3="4,26.7745302713987" />
-                  <mssgle:LineSegment
-                    End="152.166666666667,26.7745302713987" />
-                  <mssgle:CubicBezierSegment
-                    Point1="152.166666666667,26.7745302713987"
-                    Point2="156.166666666667,26.7745302713987"
-                    Point3="156.166666666667,30.7745302713987" />
-                  <mssgle:LineSegment
-                    End="156.166666666667,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\DIM_Economia.Paths[Salida de ordenación1]"
           TopLeft="634,193">
@@ -2290,7 +2678,45 @@ FROM            tbl_Students INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de ordenación]"
+          TopLeft="246.5,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.166666666667,45"
+              Start="0,0"
+              End="156.166666666667,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.7745302713987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.7745302713987"
+                    Point2="0,26.7745302713987"
+                    Point3="4,26.7745302713987" />
+                  <mssgle:LineSegment
+                    End="152.166666666667,26.7745302713987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.166666666667,26.7745302713987"
+                    Point2="156.166666666667,26.7745302713987"
+                    Point3="156.166666666667,30.7745302713987" />
+                  <mssgle:LineSegment
+                    End="156.166666666667,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2324,7 +2750,69 @@ FROM            tbl_Students INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de origen de OLE DB1]"
+          TopLeft="637.75,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de origen de OLE DB]"
+          TopLeft="223.5,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23,76"
+              Start="0,0"
+              End="23,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="4,38" />
+                  <mssgle:LineSegment
+                    End="19,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19,38"
+                    Point2="23,38"
+                    Point3="23,42" />
+                  <mssgle:LineSegment
+                    End="23,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2332,6 +2820,14 @@ FROM            tbl_Students INNER JOIN
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\DIM_Economia\SQL_estadoEconomicoPersona">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Economia\SQL_Becas">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2351,8 +2847,44 @@ FROM            tbl_Students INNER JOIN
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DIM_AcademicStatus">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DIM_AcademicStatus\Origen de OLE DB"
+          TopLeft="177,86" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\DIM_AcademicStatus\XML Source"
+          TopLeft="628,84" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DIM_Economia\SQL_Becas">
+    design-time-name="Package\DIM_AcademicStatus\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DIM_CursoAcademico">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DIM_CursoAcademico\Origen de OLE DB"
+          TopLeft="391,36" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_CursoAcademico\Origen de OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
