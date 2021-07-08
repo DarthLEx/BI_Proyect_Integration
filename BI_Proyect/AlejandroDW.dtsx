@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-JSLQ0KN"
   DTS:CreatorName="DESKTOP-JSLQ0KN\user"
-  DTS:DTSID="{0C549B02-6C4E-4467-AC30-EB30BDA6D015}"
+  DTS:DTSID="{0FB0CAB0-5DF7-43A2-B2C8-E30A4DD01FE8}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.152"
   DTS:LocaleID="3082"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="AlejandroDW"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{8A4C71A5-65F8-4FE5-8788-F3089285EBE0}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{479789C6-AD70-4C26-AB48-88397C86351A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -244,58 +244,75 @@ FROM            tbl_parentalLevel INNER JOIN
               </outputs>
             </component>
             <component
-              refId="Package\DIM_AcademicStatus\XML Source"
+              refId="Package\DIM_AcademicStatus\Script Component"
               componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
-              name="XML Source"
-              usesDispositions="true"
-              version="2">
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;12"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Script Component"
+              version="12">
               <properties>
                 <property
                   dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
                 <property
-                  dataType="System.Null"
-                  description="The XML data used by the XML source adapter."
-                  expressionType="Notify"
-                  name="XMLData" />
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
                 <property
-                  dataType="System.Null"
-                  description="The variable used by the XML source adapter to specify XML data."
-                  name="XMLDataVariable" />
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_824a801a6efc4368861da1576620315f</property>
                 <property
-                  dataType="System.Int32"
-                  description="Defines how the XML source adapter gets XML data."
-                  name="AccessMode">0</property>
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
                 <property
-                  dataType="System.Null"
-                  description="The XML schema definition used by the XML source adapter."
-                  expressionType="Notify"
-                  name="XMLSchemaDefinition" />
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
                 <property
-                  dataType="System.Null"
-                  description="Identifies whether or not to use inline schema."
-                  name="UseInlineSchema" />
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
                 <property
-                  dataType="System.Int32"
-                  description="Defines how XML integer types are mapped."
-                  name="XMLIntegerMapping"
-                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum140"
+                  typeConverter="NOTBROWSABLE"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
               </properties>
               <outputs>
                 <output
-                  refId="Package\DIM_AcademicStatus\XML Source.Outputs[XML Source Output]"
-                  dangling="true"
-                  name="XML Source Output">
-                  <properties>
-                    <property
-                      dataType="System.Null"
-                      description="Identifies the rowset associated with the output."
-                      name="RowsetID" />
-                  </properties>
-                  <externalMetadataColumns
-                    isUsed="True" />
+                  refId="Package\DIM_AcademicStatus\Script Component.Outputs[Output 0]"
+                  hasSideEffects="true"
+                  name="Output 0">
+                  <externalMetadataColumns />
                 </output>
               </outputs>
             </component>
@@ -2600,6 +2617,14 @@ FROM            tbl_Students INNER JOIN
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
+          Size="178,42"
+          Id="Package\DIM_AcademicStatus"
+          TopLeft="301,147" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DIM_CursoAcademico"
+          TopLeft="548,154" />
+        <NodeLayout
           Size="150,42"
           Id="Package\DIM_Economia"
           TopLeft="89,150" />
@@ -2607,17 +2632,53 @@ FROM            tbl_Students INNER JOIN
           Size="163,42"
           Id="Package\Execute SQL Task"
           TopLeft="316,41" />
-        <NodeLayout
-          Size="178,42"
-          Id="Package\DIM_AcademicStatus"
-          TopLeft="303,149" />
-        <NodeLayout
-          Size="182,42"
-          Id="Package\DIM_CursoAcademico"
-          TopLeft="576,146" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\DIM_AcademicStatus">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DIM_AcademicStatus\Origen de OLE DB"
+          TopLeft="177,86" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DIM_AcademicStatus\Script Component"
+          TopLeft="552,82" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_AcademicStatus\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DIM_CursoAcademico">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DIM_CursoAcademico\Origen de OLE DB"
+          TopLeft="175,111" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_CursoAcademico\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DIM_Economia">
     <LayoutInfo>
@@ -2844,50 +2905,6 @@ FROM            tbl_Students INNER JOIN
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DIM_AcademicStatus">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="164,42"
-          Id="Package\DIM_AcademicStatus\Origen de OLE DB"
-          TopLeft="177,86" />
-        <NodeLayout
-          Size="134,42"
-          Id="Package\DIM_AcademicStatus\XML Source"
-          TopLeft="628,84" />
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_AcademicStatus\Origen de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DIM_CursoAcademico">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="164,42"
-          Id="Package\DIM_CursoAcademico\Origen de OLE DB"
-          TopLeft="391,36" />
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_CursoAcademico\Origen de OLE DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
