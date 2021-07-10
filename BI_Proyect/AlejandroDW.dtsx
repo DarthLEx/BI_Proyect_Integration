@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="AlejandroDW"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{2E45C670-2F81-4B21-88F8-282F68F9DBC0}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{89CA158E-C1D3-4DFB-8B33-DFAE8534E2F0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2494,6 +2494,407 @@ FROM            tbl_parentalLevel INNER JOIN
               </outputs>
             </component>
             <component
+              refId="Package\DIM_Economia\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[IdMatricula]"
+                      cachedDataType="r8"
+                      cachedName="IdMatricula"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMatricula]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[IdEstudiante]"
+                      cachedDataType="r8"
+                      cachedName="IdEstudiante"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEstudiante]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[IdEconomicLevel]"
+                      cachedDataType="r8"
+                      cachedName="IdEconomicLevel"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEconomicLevel]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[IDBeca]"
+                      cachedDataType="r8"
+                      cachedName="IDBeca"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[costoMatriculaAnual]"
+                      cachedDataType="r8"
+                      cachedName="costoMatriculaAnual"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[costoMatriculaAnual]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[PagoMatricula]"
+                      cachedDataType="r8"
+                      cachedName="PagoMatricula"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PagoMatricula]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[pagoAlojamiento]"
+                      cachedDataType="r8"
+                      cachedName="pagoAlojamiento"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlojamiento]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[pagoAlimentacion]"
+                      cachedDataType="r8"
+                      cachedName="pagoAlimentacion"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlimentacion]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[pagoSeguroMedico]"
+                      cachedDataType="r8"
+                      cachedName="pagoSeguroMedico"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoSeguroMedico]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[pagoTransporte]"
+                      cachedDataType="r8"
+                      cachedName="pagoTransporte"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoTransporte]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[pagoMaterialEstudio]"
+                      cachedDataType="r8"
+                      cachedName="pagoMaterialEstudio"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoMaterialEstudio]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[TotalBeca]"
+                      cachedDataType="r8"
+                      cachedName="TotalBeca"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TotalBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[salarioAnual]"
+                      cachedDataType="r8"
+                      cachedName="salarioAnual"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[salarioAnual]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[IdEntidadBeca]"
+                      cachedDataType="r8"
+                      cachedName="IdEntidadBeca"
+                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEntidadBeca]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdMatricula]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdMatricula]"
+                      name="Copy of IdMatricula"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMatricula]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdEstudiante]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdEstudiante]"
+                      name="Copy of IdEstudiante"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEstudiante]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdEconomicLevel]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdEconomicLevel]"
+                      name="Copy of IdEconomicLevel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEconomicLevel]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdBeca]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdBeca]"
+                      name="Copy of IdBeca"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDBeca]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of costoMatriculaAnual]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of costoMatriculaAnual]"
+                      name="Copy of costoMatriculaAnual"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[costoMatriculaAnual]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of PagoMatricula]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of PagoMatricula]"
+                      name="Copy of PagoMatricula"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PagoMatricula]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoAlojamiento]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoAlojamiento]"
+                      name="Copy of pagoAlojamiento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlojamiento]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoAlimentacion]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoAlimentacion]"
+                      name="Copy of pagoAlimentacion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlimentacion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoSeguroMedico]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoSeguroMedico]"
+                      name="Copy of pagoSeguroMedico"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoSeguroMedico]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoTransporte]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoTransporte]"
+                      name="Copy of pagoTransporte"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoTransporte]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoMaterialEstudio]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoMaterialEstudio]"
+                      name="Copy of pagoMaterialEstudio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoMaterialEstudio]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalBeca]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalBeca]"
+                      name="Copy of TotalBeca"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TotalBeca]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of salarioAnual]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of salarioAnual]"
+                      name="Copy of salarioAnual"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[salarioAnual]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdEntidadBeca]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdEntidadBeca]"
+                      name="Copy of IdEntidadBeca"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEntidadBeca]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DIM_Economia\DIM_Economia"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
@@ -2566,12 +2967,6 @@ FROM            tbl_parentalLevel INNER JOIN
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[salarioAnual]"
-                      cachedDataType="r8"
-                      cachedName="salarioAnual"
-                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[salarioAnual]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[salarioAnual]" />
-                    <inputColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[cabezaFamilia]"
                       cachedDataType="bool"
                       cachedName="cabezaFamilia"
@@ -2592,49 +2987,12 @@ FROM            tbl_parentalLevel INNER JOIN
                       externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[ZonaVivienda]"
                       lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[ZonaVivienda]" />
                     <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[costoMatriculaAnual]"
-                      cachedDataType="r8"
-                      cachedName="costoMatriculaAnual"
-                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[costoMatriculaAnual]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[costoMatriculaAnual]" />
-                    <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[IdMatricula]"
-                      cachedDataType="r8"
-                      cachedName="IdMatricula"
-                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMatricula]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdMatricula]" />
-                    <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[IdEstudiante]"
-                      cachedDataType="r8"
-                      cachedName="IdEstudiante"
-                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEstudiante]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEstudiante]" />
-                    <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[IdEconomicLevel]"
-                      cachedDataType="r8"
-                      cachedName="IdEconomicLevel"
-                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEconomicLevel]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEconomicLevel]" />
-                    <inputColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[NombreEntidadBeca]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="NombreEntidadBeca"
                       externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreEntidadBeca]"
                       lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[NombreEntidadBeca]" />
-                    <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[IdEntidadBeca]"
-                      cachedDataType="r8"
-                      cachedName="IdEntidadBeca"
-                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEntidadBeca]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IdEntidadBeca]" />
-                    <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[IDBeca]"
-                      cachedDataType="r8"
-                      cachedName="IDBeca"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDBeca]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[IDBeca]" />
                     <inputColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[tipoBeca]"
                       cachedDataType="wstr"
@@ -2643,53 +3001,95 @@ FROM            tbl_parentalLevel INNER JOIN
                       externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[tipoBeca]"
                       lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tipoBeca]" />
                     <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[PagoMatricula]"
-                      cachedDataType="r8"
-                      cachedName="PagoMatricula"
-                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[PagoMatricula]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[PagoMatricula]" />
-                    <inputColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[coberturaDeMatricula]"
                       cachedDataType="r8"
                       cachedName="coberturaDeMatricula"
                       externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[coberturaDeMatricula]"
                       lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[coberturaDeMatricula]" />
                     <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[pagoAlojamiento]"
-                      cachedDataType="r8"
-                      cachedName="pagoAlojamiento"
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of salarioAnual]"
+                      cachedDataType="cy"
+                      cachedName="Copy of salarioAnual"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[salarioAnual]"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of salarioAnual]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of costoMatriculaAnual]"
+                      cachedDataType="cy"
+                      cachedName="Copy of costoMatriculaAnual"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[costoMatriculaAnual]"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of costoMatriculaAnual]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of IdMatricula]"
+                      cachedDataType="ui8"
+                      cachedName="Copy of IdMatricula"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMatricula]"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdMatricula]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of IdEstudiante]"
+                      cachedDataType="ui8"
+                      cachedName="Copy of IdEstudiante"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEstudiante]"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdEstudiante]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of IdEconomicLevel]"
+                      cachedDataType="ui8"
+                      cachedName="Copy of IdEconomicLevel"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEconomicLevel]"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdEconomicLevel]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of IdEntidadBeca]"
+                      cachedDataType="ui8"
+                      cachedName="Copy of IdEntidadBeca"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEntidadBeca]"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdEntidadBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of IdBeca]"
+                      cachedDataType="ui8"
+                      cachedName="Copy of IdBeca"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDBeca]"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdBeca]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of PagoMatricula]"
+                      cachedDataType="cy"
+                      cachedName="Copy of PagoMatricula"
+                      externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[PagoMatricula]"
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of PagoMatricula]" />
+                    <inputColumn
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of pagoAlojamiento]"
+                      cachedDataType="cy"
+                      cachedName="Copy of pagoAlojamiento"
                       externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoAlojamiento]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlojamiento]" />
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoAlojamiento]" />
                     <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[pagoAlimentacion]"
-                      cachedDataType="r8"
-                      cachedName="pagoAlimentacion"
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of pagoAlimentacion]"
+                      cachedDataType="cy"
+                      cachedName="Copy of pagoAlimentacion"
                       externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoAlimentacion]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoAlimentacion]" />
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoAlimentacion]" />
                     <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[pagoSeguroMedico]"
-                      cachedDataType="r8"
-                      cachedName="pagoSeguroMedico"
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of pagoSeguroMedico]"
+                      cachedDataType="cy"
+                      cachedName="Copy of pagoSeguroMedico"
                       externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoSeguroMedico]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoSeguroMedico]" />
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoSeguroMedico]" />
                     <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[pagoTransporte]"
-                      cachedDataType="r8"
-                      cachedName="pagoTransporte"
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of pagoTransporte]"
+                      cachedDataType="cy"
+                      cachedName="Copy of pagoTransporte"
                       externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoTransporte]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoTransporte]" />
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoTransporte]" />
                     <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[pagoMaterialEstudio]"
-                      cachedDataType="r8"
-                      cachedName="pagoMaterialEstudio"
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of pagoMaterialEstudio]"
+                      cachedDataType="cy"
+                      cachedName="Copy of pagoMaterialEstudio"
                       externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoMaterialEstudio]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[pagoMaterialEstudio]" />
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of pagoMaterialEstudio]" />
                     <inputColumn
-                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[TotalBeca]"
-                      cachedDataType="r8"
-                      cachedName="TotalBeca"
+                      refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].Columns[Copy of TotalBeca]"
+                      cachedDataType="cy"
+                      cachedName="Copy of TotalBeca"
                       externalMetadataColumnId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalBeca]"
-                      lineageId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[TotalBeca]" />
+                      lineageId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of TotalBeca]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2699,7 +3099,7 @@ FROM            tbl_parentalLevel INNER JOIN
                       name="ESocioEconomicKey" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[salarioAnual]"
-                      dataType="r8"
+                      dataType="cy"
                       name="salarioAnual" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[cabezaFamilia]"
@@ -2717,19 +3117,19 @@ FROM            tbl_parentalLevel INNER JOIN
                       name="ZonaVivienda" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[costoMatriculaAnual]"
-                      dataType="r8"
+                      dataType="cy"
                       name="costoMatriculaAnual" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdMatricula]"
-                      dataType="r8"
+                      dataType="i4"
                       name="IdMatricula" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEstudiante]"
-                      dataType="r8"
+                      dataType="i4"
                       name="IdEstudiante" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEconomicLevel]"
-                      dataType="r8"
+                      dataType="i4"
                       name="IdEconomicLevel" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreEntidadBeca]"
@@ -2738,11 +3138,11 @@ FROM            tbl_parentalLevel INNER JOIN
                       name="NombreEntidadBeca" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdEntidadBeca]"
-                      dataType="r8"
+                      dataType="i4"
                       name="IdEntidadBeca" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[IDBeca]"
-                      dataType="r8"
+                      dataType="i4"
                       name="IDBeca" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[tipoBeca]"
@@ -2751,35 +3151,35 @@ FROM            tbl_parentalLevel INNER JOIN
                       name="tipoBeca" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[PagoMatricula]"
-                      dataType="r8"
+                      dataType="cy"
                       name="PagoMatricula" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[coberturaDeMatricula]"
-                      dataType="r8"
+                      dataType="cy"
                       name="coberturaDeMatricula" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoAlojamiento]"
-                      dataType="r8"
+                      dataType="cy"
                       name="pagoAlojamiento" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoAlimentacion]"
-                      dataType="r8"
+                      dataType="cy"
                       name="pagoAlimentacion" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoSeguroMedico]"
-                      dataType="r8"
+                      dataType="cy"
                       name="pagoSeguroMedico" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoTransporte]"
-                      dataType="r8"
+                      dataType="cy"
                       name="pagoTransporte" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[pagoMaterialEstudio]"
-                      dataType="r8"
+                      dataType="cy"
                       name="pagoMaterialEstudio" />
                     <externalMetadataColumn
                       refId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB].ExternalColumns[TotalBeca]"
-                      dataType="r8"
+                      dataType="cy"
                       name="TotalBeca" />
                   </externalMetadataColumns>
                 </input>
@@ -4082,9 +4482,14 @@ FROM            tbl_Students INNER JOIN
           <paths>
             <path
               refId="Package\DIM_Economia.Paths[Salida de combinación de mezcla]"
-              endId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\DIM_Economia\Conversión de datos.Inputs[Entrada de conversión de datos]"
               name="Salida de combinación de mezcla"
               startId="Package\DIM_Economia\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\DIM_Economia.Paths[Salida de conversión de datos]"
+              endId="Package\DIM_Economia\DIM_Economia.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\DIM_Economia\Conversión de datos.Outputs[Salida de conversión de datos]" />
             <path
               refId="Package\DIM_Economia.Paths[Salida de ordenación]"
               endId="Package\DIM_Economia\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
@@ -5114,7 +5519,7 @@ FROM            tbl_Students INNER JOIN
                   dataType="System.Null"
                   description="The package variable which supplies JSON string."
                   name="JsonStringVariable"
-                  typeConverter="NOTBROWSABLE" />
+                  typeConverter="CozyRoc.SqlServer.SSIS.VariableEditor" />
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">CozyRoc.JsonSource</property>
@@ -5979,30 +6384,13 @@ FROM            tbl_Program INNER JOIN
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{32A88240-FE27-40C8-8F0D-E26583AAE4E9}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{F9FE40D0-D45A-418C-89A2-BE35EC683EFA}"
-          SQLTask:SqlStatementSource="Delete from DIM_Academia&#xA;go&#xA;Delete from DIM_Economia&#xA;go&#xA;Delete from DIM_ProgramaAcademico&#xA;go&#xA;delete from DIM_Ubicacion" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Ubicacion"
+      DTS:refId="Package\DIM_Tiempo"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{AAAD6FC2-1E0A-4738-9113-7A88D1551F54}"
+      DTS:DTSID="{A22650F2-BEFC-4919-856A-2ED3559B59CB}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Ubicacion"
+      DTS:ObjectName="DIM_Tiempo"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -6010,98 +6398,115 @@ FROM            tbl_Program INNER JOIN
           version="1">
           <components>
             <component
-              refId="Package\Ubicacion\Conversión de datos"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
-              description="Conversión de datos"
-              name="Conversión de datos"
-              usesDispositions="true">
+              refId="Package\DIM_Tiempo\DIM_Tiempo"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DIM_Tiempo"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[DIM_Tiempo]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_Tiempo\DIM_Tiempo.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.DW_BI_Proyect]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.DW_BI_Proyect]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
               <inputs>
                 <input
-                  refId="Package\Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos]"
-                  name="Entrada de conversión de datos">
+                  refId="Package\DIM_Tiempo\DIM_Tiempo.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[IdCity]"
+                      refId="Package\DIM_Tiempo\DIM_Tiempo.Inputs[Entrada de destino de OLE DB].Columns[Year]"
                       cachedDataType="r8"
-                      cachedName="IdCity"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdCity]" />
-                    <inputColumn
-                      refId="Package\Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[IdState]"
-                      cachedDataType="r8"
-                      cachedName="IdState"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdState]" />
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\DIM_Tiempo\DIM_Tiempo.Inputs[Entrada de destino de OLE DB].ExternalColumns[Year]"
+                      lineageId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Year]" />
                   </inputColumns>
-                  <externalMetadataColumns />
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_Tiempo\DIM_Tiempo.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdTiempo]"
+                      dataType="i4"
+                      name="IdTiempo" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_Tiempo\DIM_Tiempo.Inputs[Entrada de destino de OLE DB].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos]"
-                  exclusionGroup="1"
-                  name="Salida de conversión de datos"
-                  synchronousInputId="Package\Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdCity]"
-                      dataType="ui8"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdCity]"
-                      name="Copy of IdCity"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdCity]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdState]"
-                      dataType="ui8"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdState]"
-                      name="Copy of IdState"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdState]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Ubicacion\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  refId="Package\DIM_Tiempo\DIM_Tiempo.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
-                  name="Salida de error de conversión de datos"
-                  synchronousInputId="Package\Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\DIM_Tiempo\DIM_Tiempo.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Ubicacion\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      refId="Package\DIM_Tiempo\DIM_Tiempo.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Ubicacion\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      lineageId="Package\DIM_Tiempo\DIM_Tiempo.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Ubicacion\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      refId="Package\DIM_Tiempo\DIM_Tiempo.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Ubicacion\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      lineageId="Package\DIM_Tiempo\DIM_Tiempo.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6110,7 +6515,239 @@ FROM            tbl_Program INNER JOIN
               </outputs>
             </component>
             <component
-              refId="Package\Ubicacion\Destino de OLE DB"
+              refId="Package\DIM_Tiempo\Origen de OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT [Year]
+FROM            tbl_Performance</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_Tiempo\Origen de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Year]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Year]"
+                      lineageId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Year]"
+                      dataType="r8"
+                      name="Year" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Year]"
+                      dataType="r8"
+                      lineageId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_Tiempo.Paths[Salida de origen de OLE DB]"
+              endId="Package\DIM_Tiempo\DIM_Tiempo.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\DIM_Tiempo\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DIM_Ubicacion"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{AAAD6FC2-1E0A-4738-9113-7A88D1551F54}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_Ubicacion"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_Ubicacion\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DIM_Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[IdCity]"
+                      cachedDataType="r8"
+                      cachedName="IdCity"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdCity]" />
+                    <inputColumn
+                      refId="Package\DIM_Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[IdState]"
+                      cachedDataType="r8"
+                      cachedName="IdState"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdState]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\DIM_Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdCity]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdCity]"
+                      name="Copy of IdCity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdCity]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdState]"
+                      dataType="ui8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdState]"
+                      name="Copy of IdState"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdState]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\DIM_Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_Ubicacion\Destino de OLE DB"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
@@ -6167,7 +6804,7 @@ FROM            tbl_Program INNER JOIN
               </properties>
               <connections>
                 <connection
-                  refId="Package\Ubicacion\Destino de OLE DB.Connections[OleDbConnection]"
+                  refId="Package\DIM_Ubicacion\Destino de OLE DB.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.DW_BI_Proyect]"
                   connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.DW_BI_Proyect]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -6175,63 +6812,63 @@ FROM            tbl_Program INNER JOIN
               </connections>
               <inputs>
                 <input
-                  refId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CityName]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[CityName]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="CityName"
-                      externalMetadataColumnId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CityName]"
-                      lineageId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[CityName]" />
+                      externalMetadataColumnId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CityName]"
+                      lineageId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[CityName]" />
                     <inputColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[StateName]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[StateName]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="StateName"
-                      externalMetadataColumnId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[StateName]"
-                      lineageId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[StateName]" />
+                      externalMetadataColumnId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[StateName]"
+                      lineageId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[StateName]" />
                     <inputColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copy of IdCity]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copy of IdCity]"
                       cachedDataType="ui8"
                       cachedName="Copy of IdCity"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCity]"
-                      lineageId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdCity]" />
+                      externalMetadataColumnId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCity]"
+                      lineageId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdCity]" />
                     <inputColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copy of IdState]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copy of IdState]"
                       cachedDataType="ui8"
                       cachedName="Copy of IdState"
-                      externalMetadataColumnId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdState]"
-                      lineageId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdState]" />
+                      externalMetadataColumnId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdState]"
+                      lineageId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdState]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[EUbicacion]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[EUbicacion]"
                       dataType="i4"
                       name="EUbicacion" />
                     <externalMetadataColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CityName]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CityName]"
                       dataType="wstr"
                       length="255"
                       name="CityName" />
                     <externalMetadataColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[StateName]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[StateName]"
                       dataType="wstr"
                       length="255"
                       name="StateName" />
                     <externalMetadataColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCity]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdCity]"
                       dataType="numeric"
                       name="IdCity"
                       precision="20" />
                     <externalMetadataColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdState]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[IdState]"
                       dataType="numeric"
                       name="IdState"
                       precision="20" />
@@ -6240,22 +6877,22 @@ FROM            tbl_Program INNER JOIN
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Ubicacion\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\DIM_Ubicacion\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Ubicacion\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DIM_Ubicacion\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Ubicacion\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DIM_Ubicacion\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Ubicacion\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DIM_Ubicacion\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6264,7 +6901,7 @@ FROM            tbl_Program INNER JOIN
               </outputs>
             </component>
             <component
-              refId="Package\Ubicacion\Ordenar"
+              refId="Package\DIM_Ubicacion\Ordenar"
               componentClassID="Microsoft.Sort"
               contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
               description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
@@ -6283,15 +6920,15 @@ FROM            tbl_Program INNER JOIN
               </properties>
               <inputs>
                 <input
-                  refId="Package\Ubicacion\Ordenar.Inputs[Entrada de ordenación]"
+                  refId="Package\DIM_Ubicacion\Ordenar.Inputs[Entrada de ordenación]"
                   name="Entrada de ordenación">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Ubicacion\Ordenar.Inputs[Entrada de ordenación].Columns[CityName]"
+                      refId="Package\DIM_Ubicacion\Ordenar.Inputs[Entrada de ordenación].Columns[CityName]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="CityName"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[CityName]">
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[CityName]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -6304,11 +6941,11 @@ FROM            tbl_Program INNER JOIN
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Ubicacion\Ordenar.Inputs[Entrada de ordenación].Columns[StateName]"
+                      refId="Package\DIM_Ubicacion\Ordenar.Inputs[Entrada de ordenación].Columns[StateName]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="StateName"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[StateName]">
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[StateName]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -6321,10 +6958,10 @@ FROM            tbl_Program INNER JOIN
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Ubicacion\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of IdCity]"
+                      refId="Package\DIM_Ubicacion\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of IdCity]"
                       cachedDataType="ui8"
                       cachedName="Copy of IdCity"
-                      lineageId="Package\Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdCity]">
+                      lineageId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdCity]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -6337,10 +6974,10 @@ FROM            tbl_Program INNER JOIN
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Ubicacion\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of IdState]"
+                      refId="Package\DIM_Ubicacion\Ordenar.Inputs[Entrada de ordenación].Columns[Copy of IdState]"
                       cachedDataType="ui8"
                       cachedName="Copy of IdState"
-                      lineageId="Package\Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdState]">
+                      lineageId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdState]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -6358,42 +6995,42 @@ FROM            tbl_Program INNER JOIN
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación]"
+                  refId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación]"
                   isSorted="true"
                   name="Salida de ordenación">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[CityName]"
+                      refId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[CityName]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[CityName]"
+                      lineageId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[CityName]"
                       name="CityName">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[CityName]}</property>
+                          name="SortColumnId">#{Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[CityName]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[StateName]"
+                      refId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[StateName]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[StateName]"
+                      lineageId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[StateName]"
                       name="StateName">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[StateName]}</property>
+                          name="SortColumnId">#{Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[StateName]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdCity]"
+                      refId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdCity]"
                       dataType="ui8"
-                      lineageId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdCity]"
+                      lineageId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdCity]"
                       name="Copy of IdCity"
                       sortKeyPosition="1">
                       <properties>
@@ -6401,20 +7038,20 @@ FROM            tbl_Program INNER JOIN
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdCity]}</property>
+                          name="SortColumnId">#{Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdCity]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdState]"
+                      refId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdState]"
                       dataType="ui8"
-                      lineageId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdState]"
+                      lineageId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación].Columns[Copy of IdState]"
                       name="Copy of IdState">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
-                          name="SortColumnId">#{Package\Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdState]}</property>
+                          name="SortColumnId">#{Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of IdState]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -6423,7 +7060,7 @@ FROM            tbl_Program INNER JOIN
               </outputs>
             </component>
             <component
-              refId="Package\Ubicacion\SQL_Ubicacion"
+              refId="Package\DIM_Ubicacion\SQL_Ubicacion"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
@@ -6474,7 +7111,7 @@ FROM            tbl_Cities INNER JOIN
               </properties>
               <connections>
                 <connection
-                  refId="Package\Ubicacion\SQL_Ubicacion.Connections[OleDbConnection]"
+                  refId="Package\DIM_Ubicacion\SQL_Ubicacion.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
                   connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JSLQ0KN\ALEJANDRO.BI_Proyect]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -6482,107 +7119,107 @@ FROM            tbl_Cities INNER JOIN
               </connections>
               <outputs>
                 <output
-                  refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdCity]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdCity]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCity]"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdCity]"
+                      externalMetadataColumnId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCity]"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdCity]"
                       name="IdCity"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[CityName]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[CityName]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[CityName]"
+                      externalMetadataColumnId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[CityName]"
                       length="255"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[CityName]"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[CityName]"
                       name="CityName"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdState]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdState]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[IdState]"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdState]"
+                      externalMetadataColumnId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[IdState]"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[IdState]"
                       name="IdState"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[StateName]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[StateName]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[StateName]"
+                      externalMetadataColumnId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[StateName]"
                       length="255"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[StateName]"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].Columns[StateName]"
                       name="StateName"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCity]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[IdCity]"
                       dataType="r8"
                       name="IdCity" />
                     <externalMetadataColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[CityName]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[CityName]"
                       dataType="wstr"
                       length="255"
                       name="CityName" />
                     <externalMetadataColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[IdState]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[IdState]"
                       dataType="r8"
                       name="IdState" />
                     <externalMetadataColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[StateName]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB].ExternalColumns[StateName]"
                       dataType="wstr"
                       length="255"
                       name="StateName" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[IdCity]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[IdCity]"
                       dataType="r8"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[IdCity]"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[IdCity]"
                       name="IdCity" />
                     <outputColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[CityName]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[CityName]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[CityName]"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[CityName]"
                       name="CityName" />
                     <outputColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[IdState]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[IdState]"
                       dataType="r8"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[IdState]"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[IdState]"
                       name="IdState" />
                     <outputColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[StateName]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[StateName]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[StateName]"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[StateName]"
                       name="StateName" />
                     <outputColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -6593,22 +7230,56 @@ FROM            tbl_Cities INNER JOIN
           </components>
           <paths>
             <path
-              refId="Package\Ubicacion.Paths[Salida de conversión de datos]"
-              endId="Package\Ubicacion\Ordenar.Inputs[Entrada de ordenación]"
+              refId="Package\DIM_Ubicacion.Paths[Salida de conversión de datos]"
+              endId="Package\DIM_Ubicacion\Ordenar.Inputs[Entrada de ordenación]"
               name="Salida de conversión de datos"
-              startId="Package\Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos]" />
+              startId="Package\DIM_Ubicacion\Conversión de datos.Outputs[Salida de conversión de datos]" />
             <path
-              refId="Package\Ubicacion.Paths[Salida de ordenación]"
-              endId="Package\Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              refId="Package\DIM_Ubicacion.Paths[Salida de ordenación]"
+              endId="Package\DIM_Ubicacion\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
               name="Salida de ordenación"
-              startId="Package\Ubicacion\Ordenar.Outputs[Salida de ordenación]" />
+              startId="Package\DIM_Ubicacion\Ordenar.Outputs[Salida de ordenación]" />
             <path
-              refId="Package\Ubicacion.Paths[Salida de origen de OLE DB]"
-              endId="Package\Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              refId="Package\DIM_Ubicacion.Paths[Salida de origen de OLE DB]"
+              endId="Package\DIM_Ubicacion\Conversión de datos.Inputs[Entrada de conversión de datos]"
               name="Salida de origen de OLE DB"
-              startId="Package\Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\DIM_Ubicacion\SQL_Ubicacion.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{32A88240-FE27-40C8-8F0D-E26583AAE4E9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F9FE40D0-D45A-418C-89A2-BE35EC683EFA}"
+          SQLTask:SqlStatementSource="Delete from Fact_EvolucionEstudiante&#xA;go&#xA;Delete from DIM_Academia&#xA;go&#xA;Delete from DIM_Economia&#xA;go&#xA;Delete from DIM_ProgramaAcademico&#xA;go&#xA;delete from DIM_Ubicacion&#xA;go&#xA;delete from DIM_Tiempo" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Llenar Fact"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AC6DEFD8-A321-4619-ACD6-4544CCC04FD5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Llenar Fact"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F9FE40D0-D45A-418C-89A2-BE35EC683EFA}"
+          SQLTask:SqlStatementSource="exec CargarFact" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -6644,7 +7315,55 @@ FROM            tbl_Cities INNER JOIN
       DTS:From="Package\Execute SQL Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Ubicacion" />
+      DTS:To="Package\DIM_Ubicacion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{99A5834E-30B2-4494-97A3-43911D2048FC}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\DIM_Tiempo" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{F3ED778D-D910-41DC-A807-80FDCF9A87F6}"
+      DTS:From="Package\DIM_Economia"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Llenar Fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{DA68E6D9-9DCF-40E2-8BEC-85D2F32CE738}"
+      DTS:From="Package\DIM_AcademicStatus"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Llenar Fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{A9A3DCA0-17E6-4FBD-A7A1-CA349820F09B}"
+      DTS:From="Package\DIM_ProgramaActual"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Llenar Fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{440ACD39-BFA9-4049-A84E-F3E330724C14}"
+      DTS:From="Package\DIM_Ubicacion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Llenar Fact" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{DBC40F18-4D5E-4664-B508-76024CA69219}"
+      DTS:From="Package\DIM_Tiempo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Llenar Fact" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -6657,49 +7376,57 @@ FROM            tbl_Cities INNER JOIN
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="178,42"
           Id="Package\DIM_AcademicStatus"
           TopLeft="282,150" />
         <NodeLayout
+          Size="150,42"
+          Id="Package\DIM_Economia"
+          TopLeft="92,151" />
+        <NodeLayout
           Size="179,42"
           Id="Package\DIM_ProgramaActual"
           TopLeft="492,151" />
         <NodeLayout
-          Size="150,42"
-          Id="Package\DIM_Economia"
-          TopLeft="89,150" />
+          Size="139,42"
+          Id="Package\DIM_Tiempo"
+          TopLeft="924,144" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\DIM_Ubicacion"
+          TopLeft="719,148" />
         <NodeLayout
           Size="163,42"
           Id="Package\Execute SQL Task"
-          TopLeft="294,43" />
+          TopLeft="502,8" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="375.5,85">
+          TopLeft="531.833333333333,50">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-211.5,65"
+              EndConnector="-364.833333333333,101"
               Start="0,0"
-              End="-211.5,57.5">
+              End="-364.833333333333,93.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.5" />
+                    End="0,23.0643712574851" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.5"
-                    Point2="0,32.5"
-                    Point3="-4,32.5" />
+                    Point1="0,23.0643712574851"
+                    Point2="0,27.0643712574851"
+                    Point3="-4,27.0643712574851" />
                   <mssgle:LineSegment
-                    End="-207.5,32.5" />
+                    End="-360.833333333333,27.0643712574851" />
                   <mssgle:CubicBezierSegment
-                    Point1="-207.5,32.5"
-                    Point2="-211.5,32.5"
-                    Point3="-211.5,36.5" />
+                    Point1="-360.833333333333,27.0643712574851"
+                    Point2="-364.833333333333,27.0643712574851"
+                    Point3="-364.833333333333,31.0643712574851" />
                   <mssgle:LineSegment
-                    End="-211.5,57.5" />
+                    End="-364.833333333333,93.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6710,30 +7437,30 @@ FROM            tbl_Cities INNER JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="401.333333333333,85">
+          TopLeft="568,50">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-30.3333333333333,65"
+              EndConnector="-197,100"
               Start="0,0"
-              End="-30.3333333333333,57.5">
+              End="-197,92.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.3791008505468" />
+                    End="0,40.7457627118644" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.3791008505468"
-                    Point2="0,26.3791008505468"
-                    Point3="-4,26.3791008505468" />
+                    Point1="0,40.7457627118644"
+                    Point2="0,44.7457627118644"
+                    Point3="-4,44.7457627118644" />
                   <mssgle:LineSegment
-                    End="-26.3333333333333,26.3791008505468" />
+                    End="-193,44.7457627118644" />
                   <mssgle:CubicBezierSegment
-                    Point1="-26.3333333333333,26.3791008505468"
-                    Point2="-30.3333333333333,26.3791008505468"
-                    Point3="-30.3333333333333,30.3791008505468" />
+                    Point1="-193,44.7457627118644"
+                    Point2="-197,44.7457627118644"
+                    Point3="-197,48.7457627118644" />
                   <mssgle:LineSegment
-                    End="-30.3333333333333,57.5" />
+                    End="-197,92.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6744,30 +7471,98 @@ FROM            tbl_Cities INNER JOIN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="414.25,85">
+          TopLeft="599,50">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="167.25,66"
+              EndConnector="-17.5,101"
               Start="0,0"
-              End="167.25,58.5">
+              End="-17.5,93.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.7082494969819" />
+                    End="0,41.1932203389831" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.7082494969819"
-                    Point2="0,22.7082494969819"
-                    Point3="4,22.7082494969819" />
+                    Point1="0,41.1932203389831"
+                    Point2="0,45.1932203389831"
+                    Point3="-4,45.1932203389831" />
                   <mssgle:LineSegment
-                    End="163.25,22.7082494969819" />
+                    End="-13.5,45.1932203389831" />
                   <mssgle:CubicBezierSegment
-                    Point1="163.25,22.7082494969819"
-                    Point2="167.25,22.7082494969819"
-                    Point3="167.25,26.7082494969819" />
+                    Point1="-13.5,45.1932203389831"
+                    Point2="-17.5,45.1932203389831"
+                    Point3="-17.5,49.1932203389831" />
                   <mssgle:LineSegment
-                    End="167.25,58.5" />
+                    End="-17.5,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="630,50">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.5,98"
+              Start="0,0"
+              End="105.5,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.4420600858369" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.4420600858369"
+                    Point2="0,44.4420600858369"
+                    Point3="4,44.4420600858369" />
+                  <mssgle:LineSegment
+                    End="101.5,44.4420600858369" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.5,44.4420600858369"
+                    Point2="105.5,44.4420600858369"
+                    Point3="105.5,48.4420600858369" />
+                  <mssgle:LineSegment
+                    End="105.5,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="635.166666666667,50">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="358.333333333333,94"
+              Start="0,0"
+              End="358.333333333333,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.188622754491" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.188622754491"
+                    Point2="0,25.188622754491"
+                    Point3="4,25.188622754491" />
+                  <mssgle:LineSegment
+                    End="354.333333333333,25.188622754491" />
+                  <mssgle:CubicBezierSegment
+                    Point1="354.333333333333,25.188622754491"
+                    Point2="358.333333333333,25.188622754491"
+                    Point3="358.333333333333,29.188622754491" />
+                  <mssgle:LineSegment
+                    End="358.333333333333,86.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6777,35 +7572,171 @@ FROM            tbl_Cities INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="124,42"
-          Id="Package\Ubicacion"
-          TopLeft="719,148" />
+          Size="131,42"
+          Id="Package\Llenar Fact"
+          TopLeft="506,314" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="422,85">
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="167,193">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="359,63"
+              EndConnector="404.5,121"
               Start="0,0"
-              End="359,55.5">
+              End="404.5,113.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.9270386266094" />
+                    End="0,56.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.9270386266094"
-                    Point2="0,18.9270386266094"
-                    Point3="4,18.9270386266094" />
+                    Point1="0,56.5"
+                    Point2="0,60.5"
+                    Point3="4,60.5" />
                   <mssgle:LineSegment
-                    End="355,18.9270386266094" />
+                    End="400.5,60.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="355,18.9270386266094"
-                    Point2="359,18.9270386266094"
-                    Point3="359,22.9270386266094" />
+                    Point1="400.5,60.5"
+                    Point2="404.5,60.5"
+                    Point3="404.5,64.5" />
                   <mssgle:LineSegment
-                    End="359,55.5" />
+                    End="404.5,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="371,192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="221,122"
+              Start="0,0"
+              End="221,114.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.316742081448" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,68.316742081448"
+                    Point2="0,72.316742081448"
+                    Point3="4,72.316742081448" />
+                  <mssgle:LineSegment
+                    End="217,72.316742081448" />
+                  <mssgle:CubicBezierSegment
+                    Point1="217,72.316742081448"
+                    Point2="221,72.316742081448"
+                    Point3="221,76.316742081448" />
+                  <mssgle:LineSegment
+                    End="221,114.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="581.5,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.75,121"
+              Start="0,0"
+              End="20.75,113.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.0573566084788" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,75.0573566084788"
+                    Point2="0,79.0573566084788"
+                    Point3="4,79.0573566084788" />
+                  <mssgle:LineSegment
+                    End="16.75,79.0573566084788" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.75,79.0573566084788"
+                    Point2="20.75,79.0573566084788"
+                    Point3="20.75,83.0573566084788" />
+                  <mssgle:LineSegment
+                    End="20.75,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="793.5,190">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-185.1,124"
+              Start="0,0"
+              End="-185.1,116.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.3124335812965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82.3124335812965"
+                    Point2="0,86.3124335812965"
+                    Point3="-4,86.3124335812965" />
+                  <mssgle:LineSegment
+                    End="-181.1,86.3124335812965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-181.1,86.3124335812965"
+                    Point2="-185.1,86.3124335812965"
+                    Point3="-185.1,90.3124335812965" />
+                  <mssgle:LineSegment
+                    End="-185.1,116.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="993.5,186">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-381,128"
+              Start="0,0"
+              End="-381,120.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,89.1555555555556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,89.1555555555556"
+                    Point2="0,93.1555555555556"
+                    Point3="-4,93.1555555555556" />
+                  <mssgle:LineSegment
+                    End="-377,93.1555555555556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-377,93.1555555555556"
+                    Point2="-381,93.1555555555556"
+                    Point3="-381,97.1555555555556" />
+                  <mssgle:LineSegment
+                    End="-381,120.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6823,17 +7754,37 @@ FROM            tbl_Cities INNER JOIN
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="191,42"
-          Id="Package\DIM_AcademicStatus\Student Y ParentalLevel"
-          TopLeft="202,83" />
+          Size="117,42"
+          Id="Package\DIM_AcademicStatus\Ordenar"
+          TopLeft="259,271" />
         <NodeLayout
           Size="138,42"
           Id="Package\DIM_AcademicStatus\Performance"
           TopLeft="603,81" />
         <NodeLayout
+          Size="123,42"
+          Id="Package\DIM_AcademicStatus\Promedio"
+          TopLeft="458,461" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DIM_AcademicStatus\DIM_AcademicGrades"
+          TopLeft="432,563" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\DIM_AcademicStatus\Student Y ParentalLevel"
+          TopLeft="202,83" />
+        <NodeLayout
           Size="175,42"
           Id="Package\DIM_AcademicStatus\Conversión de datos"
           TopLeft="224,178" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\DIM_AcademicStatus\Ordenar 1"
+          TopLeft="614,266" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DIM_AcademicStatus\Combinación de mezcla"
+          TopLeft="423,377" />
         <NodeLayout
           Size="184,42"
           Id="Package\DIM_AcademicStatus\Conversión de datos 1"
@@ -6906,24 +7857,32 @@ FROM            tbl_Cities INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="117,42"
-          Id="Package\DIM_AcademicStatus\Ordenar"
-          TopLeft="259,271" />
         <EdgeLayout
-          Id="Package\DIM_AcademicStatus.Paths[Salida de conversión de datos]"
-          TopLeft="314.5,220">
+          Id="Package\DIM_AcademicStatus.Paths[Salida de ordenación1]"
+          TopLeft="677,308">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51"
+              EndConnector="-128.666666666667,69"
               Start="0,0"
-              End="0,43.5">
+              End="-128.666666666667,61.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.5" />
+                    End="0,37.0542797494781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.0542797494781"
+                    Point2="0,41.0542797494781"
+                    Point3="-4,41.0542797494781" />
+                  <mssgle:LineSegment
+                    End="-124.666666666667,41.0542797494781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-124.666666666667,41.0542797494781"
+                    Point2="-128.666666666667,41.0542797494781"
+                    Point3="-128.666666666667,45.0542797494781" />
+                  <mssgle:LineSegment
+                    End="-128.666666666667,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6932,52 +7891,6 @@ FROM            tbl_Cities INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="126,42"
-          Id="Package\DIM_AcademicStatus\Ordenar 1"
-          TopLeft="614,266" />
-        <EdgeLayout
-          Id="Package\DIM_AcademicStatus.Paths[Salida de conversión de datos1]"
-          TopLeft="662,213">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="15,53"
-              Start="0,0"
-              End="15,45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.5"
-                    Point2="0,26.5"
-                    Point3="4,26.5" />
-                  <mssgle:LineSegment
-                    End="11,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11,26.5"
-                    Point2="15,26.5"
-                    Point3="15,30.5" />
-                  <mssgle:LineSegment
-                    End="15,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="182,42"
-          Id="Package\DIM_AcademicStatus\DIM_AcademicGrades"
-          TopLeft="432,563" />
-        <NodeLayout
-          Size="190,42"
-          Id="Package\DIM_AcademicStatus\Combinación de mezcla"
-          TopLeft="423,377" />
         <EdgeLayout
           Id="Package\DIM_AcademicStatus.Paths[Salida de ordenación]"
           TopLeft="317.5,313">
@@ -7013,31 +7926,31 @@ FROM            tbl_Cities INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DIM_AcademicStatus.Paths[Salida de ordenación1]"
-          TopLeft="677,308">
+          Id="Package\DIM_AcademicStatus.Paths[Salida de conversión de datos1]"
+          TopLeft="662,213">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-128.666666666667,69"
+              EndConnector="15,53"
               Start="0,0"
-              End="-128.666666666667,61.5">
+              End="15,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.0542797494781" />
+                    End="0,22.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,37.0542797494781"
-                    Point2="0,41.0542797494781"
-                    Point3="-4,41.0542797494781" />
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
                   <mssgle:LineSegment
-                    End="-124.666666666667,41.0542797494781" />
+                    End="11,26.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="-124.666666666667,41.0542797494781"
-                    Point2="-128.666666666667,41.0542797494781"
-                    Point3="-128.666666666667,45.0542797494781" />
+                    Point1="11,26.5"
+                    Point2="15,26.5"
+                    Point3="15,30.5" />
                   <mssgle:LineSegment
-                    End="-128.666666666667,61.5" />
+                    End="15,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7046,10 +7959,28 @@ FROM            tbl_Cities INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="123,42"
-          Id="Package\DIM_AcademicStatus\Promedio"
-          TopLeft="458,461" />
+        <EdgeLayout
+          Id="Package\DIM_AcademicStatus.Paths[Salida de conversión de datos]"
+          TopLeft="314.5,220">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DIM_AcademicStatus.Paths[Salida de combinación de mezcla]"
           TopLeft="518.75,419">
@@ -7098,7 +8029,277 @@ FROM            tbl_Cities INNER JOIN
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\DIM_AcademicStatus\DIM_AcademicGrades">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\DIM_AcademicStatus\Student Y ParentalLevel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DIM_Economia">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DIM_Economia\DIM_Economia"
+          TopLeft="356,476" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\DIM_Economia\SQL_estadoEconomicoPersona"
+          TopLeft="112,41" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\DIM_Economia\Ordenar 1"
+          TopLeft="571,151" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\DIM_Economia\Ordenar"
+          TopLeft="188,159" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\DIM_Economia\Conversión de datos"
+          TopLeft="337,356" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DIM_Economia\Combinación de mezcla"
+          TopLeft="338,246" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\DIM_Economia\SQL_Becas"
+          TopLeft="576,36" />
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de origen de OLE DB1]"
+          TopLeft="637.75,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de origen de OLE DB]"
+          TopLeft="223.5,83">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23,76"
+              Start="0,0"
+              End="23,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="4,38" />
+                  <mssgle:LineSegment
+                    End="19,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19,38"
+                    Point2="23,38"
+                    Point3="23,42" />
+                  <mssgle:LineSegment
+                    End="23,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de ordenación1]"
+          TopLeft="634,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-170.666666666667,53"
+              Start="0,0"
+              End="-170.666666666667,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5344467640919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5344467640919"
+                    Point2="0,31.5344467640919"
+                    Point3="-4,31.5344467640919" />
+                  <mssgle:LineSegment
+                    End="-166.666666666667,31.5344467640919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-166.666666666667,31.5344467640919"
+                    Point2="-170.666666666667,31.5344467640919"
+                    Point3="-170.666666666667,35.5344467640919" />
+                  <mssgle:LineSegment
+                    End="-170.666666666667,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de ordenación]"
+          TopLeft="246.5,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.166666666667,45"
+              Start="0,0"
+              End="156.166666666667,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.7745302713987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.7745302713987"
+                    Point2="0,26.7745302713987"
+                    Point3="4,26.7745302713987" />
+                  <mssgle:LineSegment
+                    End="152.166666666667,26.7745302713987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.166666666667,26.7745302713987"
+                    Point2="156.166666666667,26.7745302713987"
+                    Point3="156.166666666667,30.7745302713987" />
+                  <mssgle:LineSegment
+                    End="156.166666666667,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de conversión de datos]"
+          TopLeft="427.75,398">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78"
+              Start="0,0"
+              End="0,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Economia.Paths[Salida de combinación de mezcla]"
+          TopLeft="433,288">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,68"
+              Start="0,0"
+              End="-8.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="-4,34" />
+                  <mssgle:LineSegment
+                    End="-4.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,34"
+                    Point2="-8.5,34"
+                    Point3="-8.5,38" />
+                  <mssgle:LineSegment
+                    End="-8.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Economia\DIM_Economia">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Economia\SQL_estadoEconomicoPersona">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Economia\SQL_Becas">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7115,17 +8316,33 @@ FROM            tbl_Cities INNER JOIN
           Id="Package\DIM_ProgramaActual\SQL_Source"
           TopLeft="213,98" />
         <NodeLayout
-          Size="139,42"
-          Id="Package\DIM_ProgramaActual\JSON Source"
-          TopLeft="601,98" />
+          Size="117,42"
+          Id="Package\DIM_ProgramaActual\Ordenar"
+          TopLeft="220,289" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\DIM_ProgramaActual\Destino de OLE DB"
+          TopLeft="407,507" />
         <NodeLayout
           Size="175,42"
           Id="Package\DIM_ProgramaActual\Conversión de datos"
           TopLeft="195,197" />
         <NodeLayout
+          Size="139,42"
+          Id="Package\DIM_ProgramaActual\JSON Source"
+          TopLeft="601,98" />
+        <NodeLayout
           Size="184,42"
           Id="Package\DIM_ProgramaActual\Conversión de datos 1"
           TopLeft="580,185" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DIM_ProgramaActual\Combinación de mezcla"
+          TopLeft="397,413" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\DIM_ProgramaActual\Ordenar 1"
+          TopLeft="620,279" />
         <EdgeLayout
           Id="Package\DIM_ProgramaActual.Paths[Salida de origen de OLE DB]"
           TopLeft="281.75,140">
@@ -7148,28 +8365,66 @@ FROM            tbl_Cities INNER JOIN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="117,42"
-          Id="Package\DIM_ProgramaActual\Ordenar"
-          TopLeft="220,289" />
-        <NodeLayout
-          Size="126,42"
-          Id="Package\DIM_ProgramaActual\Ordenar 1"
-          TopLeft="620,279" />
         <EdgeLayout
-          Id="Package\DIM_ProgramaActual.Paths[Salida de conversión de datos]"
-          TopLeft="280.5,239">
+          Id="Package\DIM_ProgramaActual.Paths[Salida de ordenación1]"
+          TopLeft="683,321">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50"
+              EndConnector="-160.666666666667,92"
               Start="0,0"
-              End="0,42.5">
+              End="-160.666666666667,84.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.5" />
+                    End="0,50.7390396659708" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.7390396659708"
+                    Point2="0,54.7390396659708"
+                    Point3="-4,54.7390396659708" />
+                  <mssgle:LineSegment
+                    End="-156.666666666667,54.7390396659708" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-156.666666666667,54.7390396659708"
+                    Point2="-160.666666666667,54.7390396659708"
+                    Point3="-160.666666666667,58.7390396659708" />
+                  <mssgle:LineSegment
+                    End="-160.666666666667,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_ProgramaActual.Paths[Salida de ordenación]"
+          TopLeft="278.5,331">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="213.5,82"
+              Start="0,0"
+              End="213.5,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37"
+                    Point2="0,41"
+                    Point3="4,41" />
+                  <mssgle:LineSegment
+                    End="209.5,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="209.5,41"
+                    Point2="213.5,41"
+                    Point3="213.5,45" />
+                  <mssgle:LineSegment
+                    End="213.5,74.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7213,6 +8468,50 @@ FROM            tbl_Cities INNER JOIN
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\DIM_ProgramaActual.Paths[Salida de conversión de datos]"
+          TopLeft="280.5,239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_ProgramaActual.Paths[Salida de combinación de mezcla]"
+          TopLeft="491.5,455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\DIM_ProgramaActual.Paths[JSON Source Output]"
           TopLeft="671.25,140">
           <EdgeLayout.Curve>
@@ -7236,104 +8535,6 @@ FROM            tbl_Cities INNER JOIN
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="190,42"
-          Id="Package\DIM_ProgramaActual\Combinación de mezcla"
-          TopLeft="397,413" />
-        <EdgeLayout
-          Id="Package\DIM_ProgramaActual.Paths[Salida de ordenación]"
-          TopLeft="278.5,331">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="213.5,82"
-              Start="0,0"
-              End="213.5,74.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,37"
-                    Point2="0,41"
-                    Point3="4,41" />
-                  <mssgle:LineSegment
-                    End="209.5,41" />
-                  <mssgle:CubicBezierSegment
-                    Point1="209.5,41"
-                    Point2="213.5,41"
-                    Point3="213.5,45" />
-                  <mssgle:LineSegment
-                    End="213.5,74.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DIM_ProgramaActual.Paths[Salida de ordenación1]"
-          TopLeft="683,321">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-160.666666666667,92"
-              Start="0,0"
-              End="-160.666666666667,84.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.7390396659708" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,50.7390396659708"
-                    Point2="0,54.7390396659708"
-                    Point3="-4,54.7390396659708" />
-                  <mssgle:LineSegment
-                    End="-156.666666666667,54.7390396659708" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-156.666666666667,54.7390396659708"
-                    Point2="-160.666666666667,54.7390396659708"
-                    Point3="-160.666666666667,58.7390396659708" />
-                  <mssgle:LineSegment
-                    End="-160.666666666667,84.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\DIM_ProgramaActual\Destino de OLE DB"
-          TopLeft="407,507" />
-        <EdgeLayout
-          Id="Package\DIM_ProgramaActual.Paths[Salida de combinación de mezcla]"
-          TopLeft="491.5,455">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52"
-              Start="0,0"
-              End="0,44.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -7342,238 +8543,6 @@ FROM            tbl_Cities INNER JOIN
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DIM_Economia">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="223,42"
-          Id="Package\DIM_Economia\SQL_estadoEconomicoPersona"
-          TopLeft="112,41" />
-        <NodeLayout
-          Size="117,42"
-          Id="Package\DIM_Economia\Ordenar"
-          TopLeft="188,159" />
-        <NodeLayout
-          Size="126,42"
-          Id="Package\DIM_Economia\Ordenar 1"
-          TopLeft="571,151" />
-        <NodeLayout
-          Size="131,42"
-          Id="Package\DIM_Economia\SQL_Becas"
-          TopLeft="576,36" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\DIM_Economia\DIM_Economia"
-          TopLeft="344,372" />
-        <NodeLayout
-          Size="190,42"
-          Id="Package\DIM_Economia\Combinación de mezcla"
-          TopLeft="338,246" />
-        <EdgeLayout
-          Id="Package\DIM_Economia.Paths[Salida de ordenación1]"
-          TopLeft="634,193">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-170.666666666667,53"
-              Start="0,0"
-              End="-170.666666666667,45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.5344467640919" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.5344467640919"
-                    Point2="0,31.5344467640919"
-                    Point3="-4,31.5344467640919" />
-                  <mssgle:LineSegment
-                    End="-166.666666666667,31.5344467640919" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-166.666666666667,31.5344467640919"
-                    Point2="-170.666666666667,31.5344467640919"
-                    Point3="-170.666666666667,35.5344467640919" />
-                  <mssgle:LineSegment
-                    End="-170.666666666667,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DIM_Economia.Paths[Salida de ordenación]"
-          TopLeft="246.5,201">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="156.166666666667,45"
-              Start="0,0"
-              End="156.166666666667,37.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.7745302713987" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.7745302713987"
-                    Point2="0,26.7745302713987"
-                    Point3="4,26.7745302713987" />
-                  <mssgle:LineSegment
-                    End="152.166666666667,26.7745302713987" />
-                  <mssgle:CubicBezierSegment
-                    Point1="152.166666666667,26.7745302713987"
-                    Point2="156.166666666667,26.7745302713987"
-                    Point3="156.166666666667,30.7745302713987" />
-                  <mssgle:LineSegment
-                    End="156.166666666667,37.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DIM_Economia.Paths[Salida de combinación de mezcla]"
-          TopLeft="433,288">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-14,84"
-              Start="0,0"
-              End="-14,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38"
-                    Point2="0,42"
-                    Point3="-4,42" />
-                  <mssgle:LineSegment
-                    End="-10,42" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10,42"
-                    Point2="-14,42"
-                    Point3="-14,46" />
-                  <mssgle:LineSegment
-                    End="-14,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DIM_Economia.Paths[Salida de origen de OLE DB1]"
-          TopLeft="637.75,78">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,73"
-              Start="0,0"
-              End="0,65.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,65.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DIM_Economia.Paths[Salida de origen de OLE DB]"
-          TopLeft="223.5,83">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="23,76"
-              Start="0,0"
-              End="23,68.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34"
-                    Point2="0,38"
-                    Point3="4,38" />
-                  <mssgle:LineSegment
-                    End="19,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19,38"
-                    Point2="23,38"
-                    Point3="23,42" />
-                  <mssgle:LineSegment
-                    End="23,68.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_Economia\SQL_estadoEconomicoPersona">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_Economia\SQL_Becas">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_Economia\DIM_Economia">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_AcademicStatus\DIM_AcademicGrades">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -7591,20 +8560,89 @@ FROM            tbl_Cities INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Ubicacion">
+    design-time-name="Package\DIM_Tiempo">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DIM_Tiempo\DIM_Tiempo"
+          TopLeft="386,238" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DIM_Tiempo\Origen de OLE DB"
+          TopLeft="381,47" />
+        <EdgeLayout
+          Id="Package\DIM_Tiempo.Paths[Salida de origen de OLE DB]"
+          TopLeft="459.25,89">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,149"
+              Start="0,0"
+              End="0,141.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,141.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Tiempo\DIM_Tiempo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Tiempo\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DIM_Ubicacion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="149,42"
-          Id="Package\Ubicacion\SQL_Ubicacion"
+          Id="Package\DIM_Ubicacion\SQL_Ubicacion"
           TopLeft="398,36" />
         <NodeLayout
+          Size="168,42"
+          Id="Package\DIM_Ubicacion\Destino de OLE DB"
+          TopLeft="399,353" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\DIM_Ubicacion\Ordenar"
+          TopLeft="415,248" />
+        <NodeLayout
           Size="175,42"
-          Id="Package\Ubicacion\Conversión de datos"
+          Id="Package\DIM_Ubicacion\Conversión de datos"
           TopLeft="395,145" />
         <EdgeLayout
-          Id="Package\Ubicacion.Paths[Salida de origen de OLE DB]"
+          Id="Package\DIM_Ubicacion.Paths[Salida de origen de OLE DB]"
           TopLeft="472.5,78">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7634,53 +8672,13 @@ FROM            tbl_Cities INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="117,42"
-          Id="Package\Ubicacion\Ordenar"
-          TopLeft="415,248" />
         <EdgeLayout
-          Id="Package\Ubicacion.Paths[Salida de conversión de datos]"
-          TopLeft="482.5,187">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9,61"
-              Start="0,0"
-              End="-9,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.5"
-                    Point2="0,30.5"
-                    Point3="-4,30.5" />
-                  <mssgle:LineSegment
-                    End="-5,30.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5,30.5"
-                    Point2="-9,30.5"
-                    Point3="-9,34.5" />
-                  <mssgle:LineSegment
-                    End="-9,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Ubicacion\Destino de OLE DB"
-          TopLeft="399,353" />
-        <EdgeLayout
-          Id="Package\Ubicacion.Paths[Salida de ordenación]"
+          Id="Package\DIM_Ubicacion.Paths[Salida de ordenación]"
           TopLeft="473.5,290">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -7710,14 +8708,52 @@ FROM            tbl_Cities INNER JOIN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Ubicacion.Paths[Salida de conversión de datos]"
+          TopLeft="482.5,187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9,61"
+              Start="0,0"
+              End="-9,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="-4,30.5" />
+                  <mssgle:LineSegment
+                    End="-5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5,30.5"
+                    Point2="-9,30.5"
+                    Point3="-9,34.5" />
+                  <mssgle:LineSegment
+                    End="-9,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Ubicacion\SQL_Ubicacion">
+    design-time-name="Package\DIM_Ubicacion\SQL_Ubicacion">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7725,7 +8761,7 @@ FROM            tbl_Cities INNER JOIN
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Ubicacion\Destino de OLE DB">
+    design-time-name="Package\DIM_Ubicacion\Destino de OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
